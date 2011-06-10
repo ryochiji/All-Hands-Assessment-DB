@@ -36,6 +36,7 @@ table,td{
 <ul class="nav" >
 <li><a href="/">Home</a></li>
 <li><a href="/edit">New</a></li>
+<li>{$_SERVER['SERVER_ADDR']}</li>
 </ul>
 </div>
 
