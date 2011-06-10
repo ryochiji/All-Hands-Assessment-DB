@@ -100,6 +100,15 @@ class ADB{
         return $r->fetch_assoc();
     }
 
+    static function fetch_all($r){
+        $out = array();
+
+        while($a=$r->fetch_assoc()){
+            $out[] = $a;
+        }
+        return $out;
+    }
+
     static function getList($sort=false){
         $db = self::getDB();
         $sql = 'SELECT id,indate,assmnt_date,proj_name,assessor,';
@@ -114,7 +123,8 @@ class ADB{
             throw new Exception($db->error);
         }
 
-        $rows = $r->fetch_all(MYSQLI_ASSOC);
+        //$rows = $r->fetch_all(MYSQLI_ASSOC);
+        $rows = self::fetch_all($r);
         $data = array();
         foreach($rows as $row){
             $row['contacts'] = array();
@@ -123,7 +133,8 @@ class ADB{
 
         $sql = 'SELECT * FROM phone_numbers';
         $r = $db->query($sql);
-        $numbers = $r->fetch_all(MYSQLI_ASSOC);
+        //$numbers = $r->fetch_all(MYSQLI_ASSOC);
+        $numbers = self::fetch_all($r);
 
         foreach($numbers as $num){
             $data[$num['assessment_id']]['contacts'][] = $num;
@@ -136,7 +147,7 @@ class ADB{
         $assid = $db->real_escape_string($assid);
         $sql = "SELECT * FROM phone_numbers WHERE assessment_id='$assid' ORDER BY id"; 
         $r = $db->query($sql);
-        return $r->fetch_all(MYSQLI_ASSOC);
+        return self::fetch_all($r); //$r->fetch_all(MYSQLI_ASSOC);
     }
 
     static function saveContact($aid,$name,$num,$notes){
@@ -161,7 +172,7 @@ class ADB{
         $sql = "SELECT * FROM calllog WHERE assessment_id='$aid'";
         $sql.= " ORDER BY ctime DESC";
         $r = $db->query($sql);
-        return $r->fetch_all(MYSQLI_ASSOC);
+        return self::fetch_all($r); //$r->fetch_all(MYSQLI_ASSOC);
     }
 
     static function saveCallLog($aid,$who,$comment){
@@ -186,7 +197,7 @@ class ADB{
         $sql = "SELECT * FROM worklog WHERE assessment_id='$aid'";
         $sql.= " ORDER BY ctime DESC";
         $r = $db->query($sql);
-        return $r->fetch_all(MYSQLI_ASSOC);
+        return self::fetch_all($r); //$r->fetch_all(MYSQLI_ASSOC);
     }
 
     static function saveWorkLog($data){
