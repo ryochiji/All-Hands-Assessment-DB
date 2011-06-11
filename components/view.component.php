@@ -115,6 +115,7 @@ class ViewComponent extends Component{
                 $out[$lr].=self::renderTextbox($field,$label,$val);
             }
         } 
+        $out['b'].='<label>Entered: '.$vals['indate'].'</label>';
         $out['b'].='<label>Last Updated: '.$vals['mtime'];
         return $out;
     }
