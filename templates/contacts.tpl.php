@@ -4,7 +4,7 @@ function toggle(link,div){
     var l = document.getElementById(link);
     var d = document.getElementById(div);
     d.style.display = "";
-    l.style.display = "none";
+    //l.style.display = "none";
 }
 </script>
 

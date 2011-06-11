@@ -56,7 +56,7 @@ class IndexComponent extends Component{
             }else{
                 $p['contacts'] = '';
             } 
-            $p['status'] = isset($p['status'])?$sts[$p['status']]:'';
+            $p['status'] = !empty($p['status'])?$sts[$p['status']]:'';
             $p['blocked'] = isset($p['blocked']) ? $blk[$p['blocked']] : '';
             $out.=Utils::at($p,'prow');
         }

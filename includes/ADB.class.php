@@ -111,7 +111,7 @@ class ADB{
 
     static function getList($sort=false){
         $db = self::getDB();
-        $sql = 'SELECT id,indate,assmnt_date,proj_name,assessor,';
+        $sql = 'SELECT id,indate,assmnt_date,proj_name,address,';
         $sql.= ' shortdesc,municipality,status,blocked,family_name';
         $sql.= ' FROM assessments'; 
         if (empty($sort)) $sort='assmnt_date';

@@ -16,10 +16,10 @@ Sort By:
     <td>Status</td>
     <td>Blocked</td>
     <td>Assessment Date</td>
-    <td>Assessor</td>
     <td>Description</td>
     <td>Family Name</td>
     <td>Municipality</td>
+    <td>Address</td>
     <td>Contacts</td>
 </tr>
 {$projects}

@@ -6,10 +6,10 @@
 <td>{$status}</td>
 <td>{$blocked}</td>
 <td>{$assmnt_date}</td>
-<td>{$assessor}</td>
 <td>{$shortdesc}</td>
 <td>{$family_name}</td>
 <td>{$municipality}</td>
+<td>{$address}</td>
 <td>{$contacts}</td>
 </tr>
 
