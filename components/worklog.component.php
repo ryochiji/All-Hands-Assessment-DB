@@ -7,6 +7,7 @@ class WorklogComponent extends Component{
     public static function router($ctx, $id){
         $entry = ADB::getWorkLogEntry($id); 
         $entry['comment'] = htmlspecialchars($entry['comment']);
+        if (empty($entry['wdate'])) $entry['wdate'] = date('Y-m-d');
         list($y,$m,$d) = explode('-',$entry['wdate']);
         if ($y<2011) $y = 2011;
         $entry['year'] = Utils::generateNumSelect('year',$y-1,$y+1,$y);
