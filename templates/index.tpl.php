@@ -12,10 +12,10 @@ Sort By:
 <tr>
     <td>ID</td>
     <td>Project Name</td>
-    <td>In-Date</td>
     <td>Status</td>
     <td>Blocked</td>
     <td>Assessment Date</td>
+    <td>Work Scheduled</td>
     <td>Description</td>
     <td>Family Name</td>
     <td>Municipality</td>

@@ -111,7 +111,7 @@ class ADB{
 
     static function getList($sort=false){
         $db = self::getDB();
-        $sql = 'SELECT id,indate,assmnt_date,proj_name,address,';
+        $sql = 'SELECT id,work_scheduled,assmnt_date,proj_name,address,';
         $sql.= ' shortdesc,municipality,status,blocked,family_name';
         $sql.= ' FROM assessments'; 
         if (empty($sort)) $sort='status';
@@ -301,9 +301,9 @@ class ADB{
             $a['family_name'] = array(1, 32, 'l','Name');
             $a['ref_by'] = array(1,32,'r','Referred By');
             $a['municipality'] = array(1, 32, 'l','Municipality');
+            $a['address'] = array(3, 32, 'l','Address');
             $a['latitude'] = array(1, 32, 'l','Latitude');
             $a['longitude'] = array(1, 32, 'l','Longitude');
-            $a['address'] = array(3, 32, 'l','Address');
             $a['inhabitants'] = array(1,16, 'l', '# of Inhabitatns');
             $a['occupations'] = array(1,32,'r','Occupations');
             $a['employment'] = array(1,32,'r','Employment Status');
@@ -324,6 +324,7 @@ class ADB{
             $a['rehab_status'] = array('c',null,'r','Home Restoration');
             $a['contributions'] = array(2,32,'l','Contributions from Family');
             $a['work_plan'] = array(5,32,'l','Work Plan');
+            $a['work_scheduled'] = array('d',null,'l','Work Scheduled For');
             $a['est_vols'] = array(1,6,'r','Estimated Volunteers');
             $a['est_days'] = array(1,6,'r','Estimated Days');
             $a['approved'] = array('c',null,'l','Approved');

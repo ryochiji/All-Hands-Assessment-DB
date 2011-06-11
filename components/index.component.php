@@ -31,7 +31,8 @@ class IndexComponent extends Component{
                     'proj_name'   => 'Project Name',
                     'family_name' => 'Family Name',
                     'status'      => 'Status',
-                    'blocked'     => 'Blocked'
+                    'blocked'     => 'Blocked',
+                    'work_scheduled' => 'Work Scheduled'
                 );
         $out = array();
         foreach($opts as $k=>$v){
