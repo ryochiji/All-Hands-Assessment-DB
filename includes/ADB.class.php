@@ -259,7 +259,7 @@ class ADB{
 
     static function getStatuses(){
         return array(
-            'req'  => 'Requested',
+            'req'  => 'Assessment Requested',
             'asc'  => 'Assessment Scheduled',
             'ass'  => 'Assessed',
             'wsc'  => 'Work Scheduled',
