@@ -7,6 +7,10 @@
 <div id="workform" style="display:none;">
 <form method="POST" action="/edit/worklog">
 <input type="hidden" name="id" value="{$id}"/>
+<label>Date</label>
+{$year}
+ / {$month}
+ / {$day}
 <label>Team Leader</label>
 <input type="text" name="who" value=""/>
 <label>Number of Volunteers</label>

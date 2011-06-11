@@ -9,7 +9,7 @@
 <input type="hidden" name="id" value="{$id}"/>
 <input type="hidden" name="assid" value="{$assessment_id}"/>
 <label>Date</label>
-{$ctime}
+{$year} / {$month} / {$day} (Originally entered: {$ctime})
 <label>Team Leader</label>
 <input type="text" name="who" value="{$who}"/>
 <label>Number of Volunteers</label>

@@ -205,8 +205,10 @@ class ADB{
         self::escapeArray($data);
         extract($data);
 
-        $sql = 'INSERT INTO worklog (assessment_id,who,comment,volunteers)';
-        $sql.= " VALUES ('$id','$who','$comment','$volunteers')";
+        $wdate = $year.'-'.$month.'-'.$day;
+
+        $sql = 'INSERT INTO worklog (assessment_id,who,wdate,comment,volunteers)';
+        $sql.= " VALUES ('$id','$who','$wdate','$comment','$volunteers')";
         $r = $db->query($sql);
         if ($db->error){
             throw new Exception($db->error);
@@ -230,9 +232,11 @@ class ADB{
         self::escapeArray($data);
         extract($data);
 
+        $wdate = $year.'-'.$month.'-'.$day;
+
         $sql = 'UPDATE worklog SET ';
         $sql.= " who='$who',volunteers='$volunteers',";
-        $sql.= " comment='$comment' WHERE id='$id'";
+        $sql.= " comment='$comment',wdate='$wdate' WHERE id='$id'";
         $r = $db->query($sql);
 
         if ($db->error){

@@ -131,6 +131,45 @@ class Utils{
         }
         return $out;
     }
+
+    static function selectMonth($name,$default){
+        $months = array(
+                    1 => 'January',
+                    2 => 'February',
+                    3 => 'March',
+                    4 => 'April',
+                    5 => 'May',
+                    6 => 'June',
+                    7 => 'July',
+                    8 => 'August',
+                    9 => 'September',
+                    10=> 'October',
+                    11=> 'November',
+                    12=> 'December'
+                );
+        return self::generateSelect($name, $months, $default);
+    }
+
+    static function generateNumSelect($name,$start,$end,$default){
+        $a = array();
+        for($i=$start;$i<=$end;$i++){
+            $a[$i] = $i;
+        }
+        return self::generateSelect($name,$a,$default);
+    }
+
+    static function generateSelect($name,$values,$default){
+        $out = '<select name="'.$name.'">';
+        foreach($values as $value=>$label){
+            $def = ($default==$value ? 'selected' : ''); 
+            $out.= '<option value="'.$value.'" '.$def.'>'.$label;
+            $out.= '</option>';
+        } 
+        $out.= '</select>'."\n";
+        return $out;
+    }
+
+    
 }
 
 ?>

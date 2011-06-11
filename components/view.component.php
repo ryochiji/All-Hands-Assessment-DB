@@ -42,10 +42,16 @@ class ViewComponent extends Component{
         $vars = array();
         $vars['id'] = $id;
         $vars['log'] = '';
+        date_default_timezone_set('Asia/Tokyo');
+        $y = date('Y');
+        $vars['year'] = Utils::generateNumSelect('year',$y-1,$y+1,$y);
+        $vars['month'] = Utils::selectMonth('month',date('m'));
+        $vars['day'] = Utils::generateNumSelect('day',1,31,date('d'));
         $a = ADB::getWorkLog($id);
         foreach($a as $e){
+            if ($e['wdate']=='0000-00-00') $e['wdate'] = $e['ctime'];
             $i = '<li>';
-            $i.= '<span>'.$e['ctime'].' -- Team Leader: '.$e['who'];
+            $i.= '<span>'.$e['wdate'].' -- Team Leader: '.$e['who'];
             $i.= ' -- Volunteers: '.$e['volunteers'];
             $i.= ' - <a href="/worklog/'.$e['id'].'">edit</a>';
             $i.= '</span>';

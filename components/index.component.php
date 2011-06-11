@@ -23,7 +23,7 @@ class IndexComponent extends Component{
     }
 
     private static function sortOptions($cur){
-        if (empty($cur)) $cur = 'assmnt_date';
+        if (empty($cur)) $cur = 'sort';
 
         $opts = array(
                     'assmnt_date' => 'Assessment Date',

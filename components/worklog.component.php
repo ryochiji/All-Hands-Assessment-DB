@@ -7,6 +7,10 @@ class WorklogComponent extends Component{
     public static function router($ctx, $id){
         $entry = ADB::getWorkLogEntry($id); 
         $entry['comment'] = htmlspecialchars($entry['comment']);
+        list($y,$m,$d) = explode('-',$entry['wdate']);
+        $entry['year'] = Utils::generateNumSelect('year',$y-1,$y+1,$y);
+        $entry['month'] = Utils::selectMonth('month',$m);
+        $entry['day'] = Utils::generateNumSelect('day',1,31,$d);
         $form = Utils::at($entry, 'editworklog');
         $ctx->appendContent($form);
         $ctx->appendContent(Utils::at(null,'create_css'),'css');
