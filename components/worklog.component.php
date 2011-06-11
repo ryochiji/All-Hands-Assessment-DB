@@ -8,6 +8,7 @@ class WorklogComponent extends Component{
         $entry = ADB::getWorkLogEntry($id); 
         $entry['comment'] = htmlspecialchars($entry['comment']);
         list($y,$m,$d) = explode('-',$entry['wdate']);
+        if ($y<2011) $y = 2011;
         $entry['year'] = Utils::generateNumSelect('year',$y-1,$y+1,$y);
         $entry['month'] = Utils::selectMonth('month',$m);
         $entry['day'] = Utils::generateNumSelect('day',1,31,$d);
