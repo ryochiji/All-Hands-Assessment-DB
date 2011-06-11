@@ -114,7 +114,7 @@ class ADB{
         $sql = 'SELECT id,indate,assmnt_date,proj_name,address,';
         $sql.= ' shortdesc,municipality,status,blocked,family_name';
         $sql.= ' FROM assessments'; 
-        if (empty($sort)) $sort='assmnt_date';
+        if (empty($sort)) $sort='status';
         if ($sort){
             $sql.= ' ORDER BY '.$db->real_escape_string($sort);
         }
