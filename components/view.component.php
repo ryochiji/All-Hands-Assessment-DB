@@ -49,7 +49,7 @@ class ViewComponent extends Component{
         $vars['day'] = Utils::generateNumSelect('day',1,31,date('d'));
         $a = ADB::getWorkLog($id);
         foreach($a as $e){
-            if ($e['wdate']=='0000-00-00') $e['wdate'] = $e['ctime'];
+            if ($e['wdate']=='' || $e['wdate']=='0000-00-00') $e['wdate'] = $e['ctime'];
             $i = '<li>';
             $i.= '<span>'.$e['wdate'].' -- Team Leader: '.$e['who'];
             $i.= ' -- Volunteers: '.$e['volunteers'];
